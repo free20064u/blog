@@ -1,15 +1,21 @@
 </main>
-<footer>
 
-<!-- footer //-->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            Learning Bootstrap 4 2016
-        </div>
-    </div>
-</div>
-
+<footer class="navbar navbar-dark bg-dark">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="-1">Disabled</a>
+        </li>
+    </ul>
+    
 </footer>
 
 </body>
