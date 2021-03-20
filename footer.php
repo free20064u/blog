@@ -1,12 +1,16 @@
 </main>
 <footer>
-<?php
 
-echo "<h1>This is the footer section</h1>";
+<!-- footer //-->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            Learning Bootstrap 4 2016
+        </div>
+    </div>
+</div>
 
-?>
 </footer>
 
-    
 </body>
 </html>
