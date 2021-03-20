@@ -5,8 +5,6 @@ include "all_page_function.php";
 ?>
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +21,7 @@ include "all_page_function.php";
 <nav class="navbar navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="https://avatars.githubusercontent.com/u/76535763?s=460&u=9b768e1cd93fb131b032bd6de262f6e9f6c3b92c&v=48" width="30" height="30" class="d-inline-block align-top" alt="">My Blog
+            <img src="image/award.png" width="30" height="30" class="d-inline-block align-top" alt="">My Blog
         </a>
         <ul class="nav nav-pills">
 
