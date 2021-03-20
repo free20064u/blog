@@ -13,8 +13,7 @@
 
 <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
-    <img src="/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-    My Blog
+        <img src="https://avatars.githubusercontent.com/u/76535763?s=460&u=9b768e1cd93fb131b032bd6de262f6e9f6c3b92c&v=48" width="30" height="30" class="d-inline-block align-top" alt="">My Blog
     </a>
     <ul class="nav nav-pills">
         <li class="nav-item">
