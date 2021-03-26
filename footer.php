@@ -1,6 +1,6 @@
 </main>
 
-<footer class="navbar navbar-dark bg-dark">
+<footer class="navbar-dark bg-dark">
 <div class="container">
     <ul class="nav nav-pills">
         <li class="nav-item">
