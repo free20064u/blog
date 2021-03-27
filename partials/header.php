@@ -6,10 +6,11 @@
 -->
 <html>
 	<head>
-		<title>Verti by HTML5 UP</title>
+		<title>Alfys Blog</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet"  href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/bootstrap.css">
 	</head>
 	<body class="is-preload homepage">
 		<div id="page-wrapper">
@@ -20,13 +21,13 @@
 
 						<!-- Logo -->
 							<div id="logo">
-								<h1><a href="index.html">Alfys</a></h1>
+								<h1><a href="index.php">Alfys</a></h1>
 							</div>
 
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="current"><a href="index.html">Welcome</a></li>
+									<li class="current"><a href="index.php">Home</a></li>
 									<li>
 										<a href="#">Category</a>
 										<ul>
@@ -44,8 +45,8 @@
 											<li><a href="#">Veroeros feugiat</a></li>
 										</ul>
 									</li>
-									<li><a href="left-sidebar.html">Login</a></li>
-									<li><a href="right-sidebar.html">Register</a></li>
+									<li><a href="user_login.php">Login</a></li>
+									<li><a href="user_register.php">Register</a></li>
 									<li><a href="no-sidebar.html">About</a></li>
 								</ul>
 							</nav>
@@ -53,14 +54,4 @@
 					</header>
 				</div>
 
-			<!-- Banner -->
-				<div id="banner-wrapper">
-					<div id="banner" class="box container">
-						<div class="row">
-							<div class="col-12 col-12-medium">
-								<h2>Welcome to Alfys blog.</h2>
-								<p>Where you get authentic news update</p>
-							</div>
-						</div>
-					</div>
-				</div>
+
