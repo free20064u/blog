@@ -1,5 +1,5 @@
 <?php 
-
+	require_once 'partials/connection.php';
 	include_once 'partials/header.php';
 
 ?>
@@ -15,7 +15,8 @@
 										<div class="inner">
 											<header>
 												<h2>Put something here</h2>
-												<p>Maybe here as well I think</p>
+												<p>Maybe here as well I think <b>13-04-2021</b>
+												</p>
 											</header>
 											<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
 										</div>
