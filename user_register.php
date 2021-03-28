@@ -18,16 +18,29 @@ if (isset($_POST['submit'])){
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     # Inserting data into the users table
-    if ($password === $password_confirm){
-        $stmt = $connect -> prepare('INSERT INTO `users` (`name`, `email`, `username`, `password`) VALUES (?, ?, ?, ?)');
-        $stmt -> execute(array($fullname, $email, $username, $hashed_password));
+    if (!empty($fullname)){
+        if (!empty($username)){
+            if (!empty($email)){
+                if ($password === $password_confirm){
+                    if (strlen($password) >= 8){
+                        $stmt = $connect -> prepare('INSERT INTO `users` (`name`, `email`, `username`, `password`) VALUES (?, ?, ?, ?)');
+                        $stmt -> execute(array($fullname, $email, $username, $hashed_password));
+                    }else{
+                        echo 'You password is too short. It must be more than seven characters';
+                    }
+                }else{
+                    echo 'Your passwords do not much';
+                }
+            }else{
+                echo 'Enter a valid email';
+            }
 
+        }else{
+            echo 'Enter username';
+        }
     }else{
-        $error = ('Your passwords do not much');
-    }
-
-    
-
+        echo 'Enter your name';
+    }   
 }else{
     echo '<div class="container">
             <h1>Register</h1>
@@ -45,7 +58,7 @@ if (isset($_POST['submit'])){
                 <button type="submit" name="submit">Register</button>
             </form>
             <br>
-                <p>Already an author. <a href="user_login.php">Login here...</a></p>
+                <p>Already a member. <a href="user_login.php">Login here...</a></p>
         </div> ';
 }
     include_once 'partials/footer.php';
