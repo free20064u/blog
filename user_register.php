@@ -46,7 +46,9 @@ if (isset($_POST['submit'])){
         $rows = $stmt->fetchAll();
         
         foreach ($rows as $row){
-            if ($row[$field] === $email || $username){
+            if ($row[$field] === $email){
+                return true;
+            }elseif ($row[$field] === $username){
                 return true;
             }else{
                 return false;
