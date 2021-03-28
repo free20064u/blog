@@ -1,21 +1,33 @@
 <?php
-
+require_once 'partials/connection.php';
 include_once 'partials/header.php';
 
 
-    echo '<div class="container">
-            <h1>Login</h1>
-            <form action="users.php" method="post">
-                <input type="text" name="username" id="" placeholder="username">
-                <br>
-                <input type="password" name="password" placeholder="password">
-                <br>
-                <button type="submit" name="submit">Login</button>
-            </form>
-            <br>
-            <p>Not a member.<a href="user_register.php">Register here...</a></p>
+if (isset($_POST['submit'])){
+    $username = filter_var(htmlspecialchars(trim($_POST['username'])), FILTER_SANITIZE_STRING);
+    $password = filter_var(htmlspecialchars(trim($_POST['password'])), FILTER_SANITIZE_STRING);
+
+    # Encrypting password
+    $stmt = $connect -> prepare('SELECT `password` FROM `users` WHERE `username` = (?)');
+    $stmt -> execute(array($username));
+    $rows = $stmt->fetchAll();
+
+    foreach ($rows as $row){  
+        if(password_verify($password, $row['password'])){
+            echo 'Welcome';
+        }else{
+            echo '<div class="container alert alert-danger">Username or password may be incorrect</div>';
+            lginhtml();
+        }
+    }
+
     
-        </div> ';
+    echo '<br>';
+    
 
+              
+}else{
+    lginhtml();
+}
 
-    include_once 'partials/footer.php';
+include_once 'partials/footer.php';
