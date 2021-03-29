@@ -6,27 +6,25 @@
 	$stmt = $connect -> query("SELECT * FROM `post`");
 	$rows = $stmt -> fetchAll();
 
-	
+	$_SESSION['username'] ??= 'Guest';
 
 ?>
 			<!-- Features -->
 				<div id="features-wrapper">
 					<div class="container">
-					<?php echo '<h2>Hello ' . $_SESSION['username'] . '</h2>' ?>
+					<?php echo '<h2>Hello ' .  $_SESSION['username'] . '</h2>' ?>
 						<div class="row">
 						<?php $a = 1;
 							foreach ($rows as $row){
 								echo '<div class="col-4 col-12-medium">
 										<!-- Box -->
 										<section class="box feature">
-											<a href="#" class="image featured"><img src="images/pic0'.$a.'.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="images/pic8.jpg" alt="" /></a>
 											<div class="inner">
 												<header>
 													<h2>' . $row['title'] . '</h2>
-													<p>Maybe here as well I think <b>'. $row['date_posted'] .'</b>
-													</p>
-												</header>
-												<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>				
+													<p>'. $row['date_posted'] .'</p>
+												</header>			
 											</div>
 										</section>
 									</div>';

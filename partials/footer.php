@@ -29,9 +29,9 @@
 											<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
 											<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
 										</ul>
-										<p>1234 Fictional Road<br />
-										Nashville, TN 00000<br />
-										(800) 555-0000</p>
+										<p>1234 New Road<br />
+										Old Town, Akim Tafo<br />
+										(233) 557-861-001</p>
 									</section>
 
 							</div>
@@ -55,7 +55,7 @@
 							<div class="col-12">
 								<div id="copyright">
 									<ul class="menu">
-										<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										<li>&copy; 2021. All rights reserved</li><li>Design: <a href="http://html5up.net">Alfy</a></li>
 									</ul>
 								</div>
 							</div>
