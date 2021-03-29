@@ -2,57 +2,36 @@
 	require_once 'partials/connection.php';
 	include_once 'partials/header.php';
 
+	# Retrieveing information from the post tabel.
+	$stmt = $connect -> query("SELECT * FROM `post`");
+	$rows = $stmt -> fetchAll();
+
+	
+
 ?>
 			<!-- Features -->
 				<div id="features-wrapper">
 					<div class="container">
+					<?php echo '<h2>Hello ' . $_SESSION['username'] . '</h2>' ?>
 						<div class="row">
-							<div class="col-4 col-12-medium">
-
-								<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-										<div class="inner">
-											<header>
-												<h2>Put something here</h2>
-												<p>Maybe here as well I think <b>13-04-2021</b>
-												</p>
-											</header>
-											<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
-										</div>
-									</section>
-
-							</div>
-							<div class="col-4 col-12-medium">
-
-								<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-										<div class="inner">
-											<header>
-												<h2>An interesting title</h2>
-												<p>This is also an interesting subtitle</p>
-											</header>
-											<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
-										</div>
-									</section>
-
-							</div>
-							<div class="col-4 col-12-medium">
-
-								<!-- Box -->
-									<section class="box feature">
-										<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-										<div class="inner">
-											<header>
-												<h2>Oh, and finally ...</h2>
-												<p>Here's another intriguing subtitle</p>
-											</header>
-											<p>Phasellus</p>
-										</div>
-									</section>
-
-							</div>
+						<?php $a = 1;
+							foreach ($rows as $row){
+								echo '<div class="col-4 col-12-medium">
+										<!-- Box -->
+										<section class="box feature">
+											<a href="#" class="image featured"><img src="images/pic0'.$a.'.jpg" alt="" /></a>
+											<div class="inner">
+												<header>
+													<h2>' . $row['title'] . '</h2>
+													<p>Maybe here as well I think <b>'. $row['date_posted'] .'</b>
+													</p>
+												</header>
+												<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>				
+											</div>
+										</section>
+									</div>';
+									$a = $a + 1;
+								}?>
 						</div>
 					</div>
 				</div>

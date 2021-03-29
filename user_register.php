@@ -5,6 +5,48 @@ require_once 'partials/connection.php';
 # Connect to the database.
 include_once 'partials/header.php';
 
+function reghtml(){
+    echo '<div id="main-wrapper">
+            <div class="container">
+                <div class="row gtr-200">
+                    <div class="col-12 col-12-medium">
+                        <h1>Register</h1>
+                        <form action="' . $_SERVER['PHP_SELF'] . '" method="post">
+                            <input type="text" name="fullname" required id="" placeholder="Fullname">
+                            <br>
+                            <input type="text" name="username" required id="" placeholder="Username">
+                            <br>
+                            <input type="email" name="email" required id="" placeholder="Email">
+                            <br>
+                            <input type="password" name="password" required placeholder="password">
+                            <br>
+                            <input type="password" name="password_confirm" required placeholder="Password confirm">
+                            <br>
+                            <button type="submit" name="submit">Register</button>
+                        </form>
+                        <br>
+                        <p>Already a member. <a href="user_login.php">Login here...</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>';
+}
+
+
+
+function check_exist($field){
+	global $connect, $email, $username;
+	
+	$stmt = $connect -> query("SELECT " . $field . " FROM users");
+	$rows = $stmt->fetchAll();
+	
+	foreach ($rows as $row){
+		if ($row[$field] === $email  || $row[$field] === $username){
+			return true;
+		}
+	}
+}
+
 
 
 
