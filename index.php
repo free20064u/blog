@@ -16,7 +16,7 @@
 		<div class="container">
 		<?php echo '<h2>Latest</h2>' ?>
 			<div class="row">
-			<?php $a = 8;
+			<?php $a = 5;
 				foreach ($rows as $row){
 					echo '<div class="col-4 col-12-medium">
 							<!-- Box -->
@@ -62,17 +62,30 @@
 					<div id="content">
 						<section class="last">
 							<h2>More news</h2>
-							<?php 
+							<div class="row">
+							<?php  $b = $a;
 								foreach ($rows1 as $row1){
-									echo '<div class="card card-inverse card-primary">
-									<div class="card-block">
-									<h4 class="card-title">'. $row1['title'] .' </h4>
-									<p class="card-text">Some basic description text for your card should
-									appear in this section.</p>
-									</div>';
+									echo '<div class="col-12 col-12-medium">
+											<!-- Box -->
+											<section class="box feature">
+												<div class="inner" style="background-color: #2abcfe">
+												<div class="row">
+													<div class="col-4 col-12-medium">
+														<a href="#" class="image featured"><img src="images/pic' . $b . '.jpg" alt="" /></a>
+													</div>
+													<div class="col-8 col-12-medium">
+														<h2>' . $row1['title'] . '</h2>
+														<p>'. $row1['content'] .'</p>
+													</div>
+												</div>
+															
+												</div>
+											</section>
+										</div>';
+										$b = $b + 1;
 								}
-							
 							?>
+							</div>
 							
 						</section>
 					</div>
