@@ -1,7 +1,10 @@
 <?php
 session_start();
-
+$_SESSION['username'] ??= 'Guest';
+$_SESSION['status'] ??= '';
 ?>
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -9,6 +12,7 @@ session_start();
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--<link rel="stylesheet" href="assets/css/bootstrap.css">-->
+		<link rel="stylesheet"  href="assets/css/bootstrap.css" />
 		<link rel="stylesheet"  href="assets/css/main.css" />
 	</head>
 	<body class="is-preload homepage">
@@ -44,13 +48,27 @@ session_start();
 											<li><a href="#">Veroeros feugiat</a></li>
 										</ul>
 									</li>
-									<li><a href="user_login.php">Login</a></li>
-									<li><a href="user_register.php">Register</a></li>
+									
+									<?php 
+									if($_SESSION['username'] === 'Guest'){
+										echo '<li><a href="user_login.php">Login</a></li>
+											  <li><a href="user_register.php">Register</a></li>';
+									}else{
+										echo '<form style="display: inline">
+												<li><input type="hidden"><a href="user_logout.php">Logout</a></input></li>
+											  </form>';
+									} 
+									if ($_SESSION['status'] === 'admin'){
+										echo '<li><a href="user_login.php">Dashbord</a></li>';
+									}
+									?>
+									
 									<li><a href="no-sidebar.html">About</a></li>
 								</ul>
 							</nav>
 
 					</header>
 				</div>
-
+			</div>
+<input type="hidden">
 

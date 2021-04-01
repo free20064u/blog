@@ -29,14 +29,14 @@ if (isset($_POST['submit'])){
     $username = filter_var(htmlspecialchars(trim($_POST['username'])), FILTER_SANITIZE_STRING);
     $password = filter_var(htmlspecialchars(trim($_POST['password'])), FILTER_SANITIZE_STRING);
 
-    # Encrypting password
-    $stmt = $connect -> prepare('SELECT `password` FROM `users` WHERE `username` = (?)');
+    $stmt = $connect -> prepare('SELECT `password`, `status` FROM `users` WHERE `username` = (?)');
     $stmt -> execute(array($username));
     $rows = $stmt->fetchAll();
 
     foreach ($rows as $row){  
         if(password_verify($password, $row['password'])){
             $_SESSION['username'] = $username;
+            $_SESSION['status'] = $row['status'];
             header('Location:index.php');
         }else{
             echo '<div class="container alert alert-danger">Username or password may be incorrect</div>';
