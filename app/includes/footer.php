@@ -3,14 +3,13 @@
     <div class="footer-content">
 
       <div class="footer-section about">
-        <h1 class="logo-text"><span>Awa</span>Inspires</h1>
+        <h1 class="logo-text"><span></span>Alphys</h1>
         <p>
-          AwaInspires is a fictional blog conceived for the purpose of a tutorial on YouTube.
-          However, Awa has a blog called pieceofadvice.org where he writes truly inspiring stuff.
+          
         </p>
         <div class="contact">
-          <span><i class="fas fa-phone"></i> &nbsp; 123-456-789</span>
-          <span><i class="fas fa-envelope"></i> &nbsp; info@awainspires.com</span>
+          <span><i class="fas fa-phone"></i> &nbsp; (+233) 203 328 960</span>
+          <span><i class="fas fa-envelope"></i> &nbsp; free20064u@gmail.com</span>
         </div>
         <div class="socials">
           <a href="#"><i class="fab fa-facebook"></i></a>
@@ -58,7 +57,7 @@
     </div>
 
     <div class="footer-bottom">
-      &copy; codingpoets.com | Designed by Awa Melvine
+      &copy; alphys.com | Designed by Alphys
     </div>
   </div>
   <!-- // footer -->
