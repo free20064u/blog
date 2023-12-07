@@ -1,0 +1,40 @@
+{% extends "base/base.html" %}
+
+
+{% block content %}
+  <main id="blog_page">
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+		<h2>Register</h2>
+      <div class="login_form">
+        {{ form }}
+        <div>
+          <button type="submit"  class="btn login_btn" style="margin-top:1.5rem;">submit</button>
+        </div>
+      </div>
+      <div>
+        	<p>Already registered. <a href="{% url "loggin" %}">Login</a> </p>
+      </div>
+      
+    </form>
+    <section class="menu"></section>
+  </main>
+{% endblock content %}
+
+<label class="login_label" for="username">Username:
+  <input type="text" class="login_input" name="username" id="username">
+</label>
+<label class="login_label" for="email">Email:
+  <input type="text" class="login_input" name="email" id="email">
+</label>
+<label class="login_label" for="password">Password:
+    <input type="text" class="login_input" name="password" id="">
+</label>
+<label for="" class="login_label">Password Confirm:
+  <input type="text" class="login_input" name="password2" id="">
+</label>
+<label for="image" class="login_label">Image:
+  <input type="file" class="login_input" name="image" id="">
+</label>
+<button type="submit"  class="btn login_btn">submit</button>
+</div>

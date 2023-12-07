@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+
+
+{% block content %}
+  <main id="blog_page">
+    <form  method="post" >
+      {% csrf_token %}
+		<h2>Login</h2>
+      <div class="login_form">
+        <label class="login_label" for="email">Email:
+          <input type="text" name="email" id="email">
+        </label>
+        <label class="login_label" for="password">Password:
+          	<input type="password" name="password" id="password">
+        </label>
+        <br>
+        <button type="submit"  class="btn login_btn">submit</button>
+      </div>
+      <div>
+        	<p>Not a member. <a href="{% url "register" %}">Sign Up</a> </p>
+      </div>
+    </form>
+    <section class="menu"></section>
+  </main>
+{% endblock content %}

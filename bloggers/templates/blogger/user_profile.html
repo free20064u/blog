@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+	<main id='blog_page'>
+		<section class="blog blogs profile_blog">
+            <img src="{{ user.image.url }}" alt="user image" width="200px">
+            <br>
+            <p>First Name: {{ user.first_name }}</p>
+            <br>
+            <p>Last Name: {{ user.last_name }}</p>
+            <br>
+            <p>Username: {{ user.username }}</p>
+            <br>
+            <p>Email: {{ user.email }}</p>	
+		</section>
+		
+		<!--This is the menu file -->
+		{% include "base/profile_menu.html" %}
+	</main>
+{% endblock content %}

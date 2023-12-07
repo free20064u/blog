@@ -1,0 +1,9 @@
+<section class="menu">
+    <h2 class="menu_heading">menu</h2>
+    <ul id="menu-list">
+        {% if user.is_authenticated %}
+        <li><a class="menu_link" href="{% url "update_profile" request.user.id %}">Update profile</a></li>
+        <li><a class="menu_link" href=" {% url "change_password" request.user.id %} ">Change password</a></li>
+        {% endif %}
+    </ul>
+</section>

@@ -1,0 +1,22 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+	<main id='blog_page'>
+		<section class="blog">
+      <div class="blogs">
+        <p class="blog_paragraph p1"><span id="user_date"><span class="username">{% if post.user.image.url != None %}<img src="{{ post.user.image.url }}" alt="user image" width=20>{% endif %}{{ post.user }}</span><span class="date_updated"></span>{{ post.created }}</span>
+			{% if request.user == post.user %}
+			<span id="edidel"><a href="{% url "update" post.id %}"><span class="edit">Edit</span></a><a href="{% url "delete" post.id %}"><span class="del">Delete</span></a>
+			</span>
+			{% endif %}
+		</p>
+        <h3><a href="{% url "detail" post.pk %}">{{ post.title }}</a></h3>
+        <p class="blog_content blog_paragraph">{{ post.content }}</p>
+		<p class="blog_paragraph p1"><span id="user_date"><span class="date_updated"></span>{{ post.modified }}</span></p>
+      </div>	
+		</section>
+
+		<!--This is the menu file -->
+		{% include "base/menu.html" %}
+	</main>
+{% endblock content %}

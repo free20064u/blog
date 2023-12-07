@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+	<main id='blog_page'>
+		<section class="blog">
+			<form action="" method="post">
+				<div class="post_form">
+					{% csrf_token %}
+                	{{ form.as_p }}
+					<button type="submit" class="btn login_btn">Submit</button>
+				</div>
+            </form>
+		</section>
+		
+		<!--This is the menu file -->
+		{% include "base/menu.html" %}
+	</main>
+{% endblock content %}

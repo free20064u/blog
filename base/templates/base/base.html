@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+  <link rel="stylesheet" href="{% static "base/css/style.css" %}">
+</head>
+<body>
+	<header class="container pc">
+		<nav class="navbar">
+			<div id="logo_section" class="navbar_sections">
+				<img id="logo" src="{% static "base/images/logo.PNG" %}" alt="logo">
+			</div>
+			<div class="navbar_sections">
+				<ul id="nav-item" class="list-item">
+					<li class="link_items"><a href="{% url "home" %}" class="link">Home</a></li>
+					<li class="link_items"><a href="{% url "about" %}" class="link">About</a></li>
+					<li class="link_items"><a href="" class="link">Contact</a></li>
+				</ul>
+			</div>
+			<div id="auth_section" class="navbar_sections">
+				{% if not user.is_authenticated %}
+					<ul class="list-item">
+						<li class="link-items"><a href="{% url "loggin" %}" class="link">Login</a></li>
+						<li class="link-items"><a href="{% url "register" %}" class="link">Register</a></li>
+					</ul>
+				{% else %}
+					<ul class="list-item">
+						<li class="link-items" style="color:white">
+							<a href="{% url "new_post" %}" class="link">New Post</a>
+						</li>
+						<li class="link-items"><a href="{% url "loggout" %}" class="link">Logout</a></li>
+					</ul>
+					<a href="{% url "user_profile" request.user.id  %}">
+						{% if user.image.url != None %}
+							<img src="{{ user.image.url }}" alt="Profile" width=30 height=30 style="border-radius: 50%;">
+						{% endif %}
+					</a>
+				{% endif %}
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<!--Mobile header-->
+
+	<header class="container mobile">
+		<nav class="navbar">
+			<div class="mobile_menu">
+				<div id="logo_section" class="navbar_sections">
+					<img id="logo" src="{% static "base/images/logo.PNG" %}" alt="logo">
+				</div>
+				<div class="mobile_toggle">
+					<ul class="mobile-lists">
+						<li class="mobile-list mobile-list-1">...</li>
+						<li class="mobile-list mobile-list-2">X</li>
+					</ul>
+				</div>
+			</div>
+			<div class="navbar_sections navbar_mobile">
+				<ul id="nav-item" class="list-item">
+					<li class="link_items"><a href="{% url "home" %}" class="link">Home</a></li>
+					<li class="link_items"><a href="{% url "about" %}" class="link">About</a></li>
+					<li class="link_items"><a href="" class="link">Contact</a></li>
+				</ul>
+			</div>
+			<div class="navbar_sections navbar_mobile">
+				{% if not user.is_authenticated %}
+					<ul class="list-item">
+						<li class="link_items"><a href="{% url "loggin" %}" class="link">Login</a></li>
+						<li class="link_items"><a href="{% url "register" %}" class="link">Register</a></li>
+					</ul>
+				{% else %}
+					<ul class="list-item">
+						<li class="link_items" style="color:white">
+							<a href="{% url "new_post" %}" class="link">New Post</a>
+						</li>
+						<li class="link_items"><a href="{% url "loggout" %}" class="link">Logout</a></li>
+					</ul>
+					<a href="{% url "user_profile" request.user.id  %}">
+						{% if user.image.url != None %}
+							<img src="{{ user.image.url }}" alt="Profile" width=30 height=30 style="border-radius: 50%;">
+						{% endif %}
+					</a>
+				{% endif %}
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<!--Notification for the user-->
+	{% if messages %}
+		{% for message in messages %}
+			<p class="{{ message.tags }}">
+					{{ message }}
+			</p>
+		{% endfor %}
+	{% endif %}
+	<!--End of Notification-->
+	<!--Content of the main page-->
+	{% block content %}
+
+	
+
+	{% endblock content %}
+	<!--End of content of the main page-->
+	<footer>
+		<p>Copyright@2023 <br> Designed by Alphy</p>
+	</footer>
+
+	<script src="{% static "base/js/script.js" %}"></script>
+</body>
+</html>

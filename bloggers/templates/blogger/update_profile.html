@@ -1,0 +1,19 @@
+{% extends "base/base.html" %}
+
+
+{% block content %}
+  <main id="blog_page">
+    <form  method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+		<h2>{{ title }}</h2>
+      <div class="login_form">
+        {{ form.as_p }}
+        <button type="submit"  class="btn login_btn">submit</button>
+      </div>
+      <div>
+        	<p>Not a member. <a href="{% url "register" %}">Sign Up</a> </p>
+      </div>
+    </form>
+    <section class="menu"></section>
+  </main>
+{% endblock content %}

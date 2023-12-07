@@ -1,0 +1,41 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+	<main id='blog_page'>
+		<section class="blog">
+			{% for post in posts  %}
+				<div class="blogs">
+					<p class="blog_paragraph p1"><span id="user_date"><span class="username">{% if post.user.image.url != None %}<img src="{{ post.user.image.url }}" alt="user image" width=20>{% endif %}{{ post.user }}</span><span class="date_updated"></span>{{ post.created }}</span>
+						{% if request.user == post.user %}
+						<span id="edidel"><a href="{% url "update" post.id %}"><span class="edit">Edit</span></a><a href="{% url "delete" post.id %}"><span class="del">Delete</span></a>
+						</span>
+						{% endif %}
+					</p>
+					<hr style="margin:5px;color:grey;">
+					<h3><a href="{% url "detail" post.pk %}">{{ post.title }}</a></h3>
+					<p class="blog_content blog_paragraph">{{ post.content }}</p>
+					<hr style="margin:5px; color:grey">
+					<p class="blog_paragraph p1"><span id="user_date"><span class="date_updated">Updated: </span>{{ post.modified }}</span></p>
+				</div>	
+			{% endfor %}
+			<div class="pagination"> 
+				<span class="step-links"> 
+					{% if posts.has_previous %} 
+						<a href="?page=1" class="page_link">&laquo;</a> 
+						<a href="?page={{ posts.previous_page_number }}" class="page_link">pre</a> 
+					{% endif %}
+					<span class="current"> 
+						Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+					</span>
+					{% if posts.has_next %} 
+						<a href="?page={{ posts.next_page_number }}" class="page_link">nex</a>
+						<a href="?page={{ posts.paginator.num_pages }}" class="page_link"> &raquo;</a> 
+					{% endif %} 
+				</span> 
+			</div>
+		</section>
+		
+		<!--This is the menu file -->
+		{% include "base/menu.html" %}
+	</main>
+{% endblock content %}
