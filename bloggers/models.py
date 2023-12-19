@@ -4,7 +4,7 @@ from django.utils.translation import gettext as _
 
 class CustomUser(AbstractUser):
     email = models.EmailField(_('email'), unique=True)
-    image = models.ImageField(default='', blank=True, upload_to='images')
+    image = models.ImageField(default='images/default.jpg', blank=True, upload_to='images')
 
 
     USERNAME_FIELD = 'email'

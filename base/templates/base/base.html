@@ -35,7 +35,7 @@
 					</ul>
 					<a href="{% url "user_profile" request.user.id  %}">
 						{% if user.image.url != None %}
-							<img src="{{ user.image.url }}" alt="Profile" width=30 height=30 style="border-radius: 50%;">
+							<img src="{{ request.user.image.url }}" alt="Profile" width=30 height=30 style="border-radius: 50%;">
 						{% endif %}
 					</a>
 				{% endif %}
