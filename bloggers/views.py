@@ -31,13 +31,20 @@ def register(request):
   }
   if request.method == 'POST':
       form = CustomUserCreationForm(request.POST, request.FILES)
-      if form.is_valid():
-        form.save()
-        user = CustomUser.objects.get(email=request.POST['email'])
-        user.set_password(request.POST['password'])
-        user.save()
-        messages.success(request, 'New User Created')
-      return redirect('home')
+      password = request.POST['password']
+      password2 = request.POST['password2']
+      if password == password2:
+        if form.is_valid():
+          form.save()
+          user = CustomUser.objects.get(email=request.POST['email'])
+          user.set_password(request.POST['password'])
+          user.save()
+          messages.success(request, 'New User Created')
+        return redirect('home')
+      else:
+        context['form'] = form
+        messages.error(request, 'Passwords do not match')
+        return render(request, 'blogger/register.html', context)
   else:
     return render(request, 'blogger/register.html', context)
 
